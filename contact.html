@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Contact - Wise Owl</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<div id="wise-owl-site">
+
+<section class="wo-page" id="contact">
+
+  <div class="wo-header">
+    <div class="wo-logo">
+      <img src="https://wiseowlscom.wordpress.com/wp-content/uploads/2026/05/a_digital_vector_illustration_features_a_stylized.png" class="wo-logo-img">
+      <h2>Wise <span>Owl</span></h2>
+    </div>
+
+    <div class="wo-nav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a class="wo-contact-btn" href="contact.html">Contact</a>
+    </div>
+  </div>
+
+  <div class="wo-wave"></div>
+
+  <div class="wo-content">
+    <h1>Contact Us</h1>
+    <p>We’re here to help. Reach out to us for any questions.</p>
+
+    <div class="wo-contact-grid">
+
+      <form class="wo-form wo-contact-card">
+        <input type="text" id="name" placeholder="Name">
+        <input type="email" id="email" placeholder="Email">
+        <textarea id="message" placeholder="Message"></textarea>
+
+        <button type="button" class="wo-btn" onclick="sendMessage()">Send Message</button>
+
+        <p id="formStatus" class="form-status"></p>
+      </form>
+
+      <div class="wo-contact-card">
+        <h3>Contact Information</h3>
+
+        <p><strong>📍 Location:</strong><br>
+        122 Learning Lane, Suite 401<br>
+        Syracuse, NY 13244</p>
+
+        <p><strong>📧 Email:</strong><br>
+        hello@wiseowl.com</p>
+
+        <p><strong>📞 Phone:</strong><br>
+        (315) 555-1234</p>
+
+        <p><strong>🕒 Hours:</strong><br>
+        Mon – Fri: 9:00 AM – 6:00 PM</p>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="wo-bottom">
+    <div>
+      <h2>Wise <span>Owl</span></h2>
+      <p>Your Path to Success</p>
+    </div>
+
+    <div>
+      <h2>Ready to Start Your Learning Journey?</h2>
+      <p>Join hundreds of successful students.</p>
+    </div>
+  </div>
+
+</section>
+
+</div>
+
+<script>
+function sendMessage() {
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const message = document.getElementById("message").value.trim();
+  const status = document.getElementById("formStatus");
+
+  if (name === "" || email === "" || message === "") {
+    status.style.color = "#c0392b";
+    status.textContent = "Please fill out all fields before sending.";
+    return;
+  }
+
+  if (!email.includes("@") || !email.includes(".")) {
+    status.style.color = "#c0392b";
+    status.textContent = "Please enter a valid email address.";
+    return;
+  }
+
+  status.style.color = "#0067c7";
+  status.textContent = "Sending message...";
+
+  setTimeout(function() {
+    status.style.color = "#1e8449";
+    status.textContent = "✅ Message sent! We'll get back to you soon.";
+    document.querySelector(".wo-form").reset();
+  }, 1500);
+}
+</script>
+
+</body>
+</html>
